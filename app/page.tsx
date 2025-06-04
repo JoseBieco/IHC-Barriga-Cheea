@@ -18,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useProducts, type Product } from "@/contexts/products-context";
 import { ProductCard } from "@/components/product-card";
+// import { AccessibilityBar } from "@/components/accessibility-bar";
+// import { AppHeader } from "@/components/app-header";
 
 type SortOption = "date" | "time" | "proximity" | null;
 
@@ -83,7 +85,7 @@ export default function Component() {
       <p className="text-gray-600 mb-6">
         <Link
           href="/adicionar-produto"
-          className="text-orange-500 hover:underline"
+          className="text-orange-500 hover:underline underline underline-offset-2"
         >
           Adicionar
         </Link>{" "}
@@ -132,76 +134,10 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-gray-50 ">
       {/* Accessibility Bar */}
-      <div className="sticky top-0 z-999">
-        <div className="bg-gray-200 text-xs text-gray-600 px-4 py-1">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex space-x-4">
-              <button type="button" className="hover:underline">
-                Ir para conteúdo [1]
-              </button>
-              <button type="button" className="hover:underline">
-                Ir para menu [2]
-              </button>
-              <button type="button" className="hover:underline">
-                Ir para o rodapé [3]
-              </button>
-              <button type="button" className="hover:underline">
-                Ir para Acessibilidade [4]
-              </button>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span>A+ | A-</span>
-              <span>Alto contraste</span>
-              <span>Desligar Animações</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Header */}
-        <header className="bg-gray-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">😊</span>
-                </div>
-                <h1 className="text-2xl font-bold text-orange-500">
-                  BARRIGA CHEEA
-                </h1>
-              </div>
-              <nav className="flex items-center space-x-8">
-                <button
-                  type="button"
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  Fale conosco
-                </button>
-                <button
-                  type="button"
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  Funcionamento
-                </button>
-                <button
-                  type="button"
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  Onde estamos
-                </button>
-                <button
-                  type="button"
-                  className="hover:text-orange-500 transition-colors"
-                >
-                  Ajuda
-                </button>
-                <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                  <span className="text-white">👤</span>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </header>
-      </div>
+      {/* <div className="sticky top-0 z-50">
+        <AccessibilityBar />
+        <AppHeader />
+      </div> */}
 
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -227,7 +163,11 @@ export default function Component() {
       </div> */}
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main
+        className="max-w-7xl mx-auto px-4 py-8"
+        id="main-content"
+        tabIndex={-1}
+      >
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-2xl font-bold text-gray-800">
@@ -260,6 +200,7 @@ export default function Component() {
                     className="pl-10 border-gray-300"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
+                    aria-label="Buscar produtos por nome, descrição ou local de retirada"
                   />
                 </div>
               </div>
@@ -275,6 +216,8 @@ export default function Component() {
                         : "text-gray-600"
                     }`}
                     onClick={() => handleSortClick("date")}
+                    aria-label="Ordenar por data de validade"
+                    aria-pressed={activeSort === "date"}
                   >
                     <Calendar
                       className={`w-4 h-4 mr-2 ${
@@ -294,6 +237,8 @@ export default function Component() {
                         : "text-gray-600"
                     }`}
                     onClick={() => handleSortClick("time")}
+                    aria-label="Ordenar por tempo de liberação"
+                    aria-pressed={activeSort === "time"}
                   >
                     <Clock
                       className={`w-4 h-4 mr-2 ${
@@ -313,6 +258,8 @@ export default function Component() {
                         : "text-gray-600"
                     }`}
                     onClick={() => handleSortClick("proximity")}
+                    aria-label="Ordenar por proximidade"
+                    aria-pressed={activeSort === "proximity"}
                   >
                     <MapPin
                       className={`w-4 h-4 mr-2 ${
@@ -362,17 +309,49 @@ export default function Component() {
           {/* Content Area */}
           <div className="lg:col-span-3">
             <Tabs defaultValue="em-liberacao" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 mb-2">
-                <TabsTrigger value="em-liberacao" className="cursor-pointer">
+              <TabsList
+                className="grid w-full grid-cols-4 mb-2"
+                role="tablist"
+                aria-label="Filtros de status de produtos"
+              >
+                <TabsTrigger
+                  value="em-liberacao"
+                  className="cursor-pointer"
+                  role="tab"
+                  aria-label={`Produtos em liberação, ${
+                    getProductsByStatus("em-liberacao").length
+                  } itens`}
+                >
                   Em liberação ({getProductsByStatus("em-liberacao").length})
                 </TabsTrigger>
-                <TabsTrigger value="liberados" className="cursor-pointer">
+                <TabsTrigger
+                  value="liberados"
+                  className="cursor-pointer"
+                  role="tab"
+                  aria-label={`Produtos liberados, ${
+                    getProductsByStatus("liberados").length
+                  } itens`}
+                >
                   Liberados ({getProductsByStatus("liberados").length})
                 </TabsTrigger>
-                <TabsTrigger value="vencidos" className="cursor-pointer">
+                <TabsTrigger
+                  value="vencidos"
+                  className="cursor-pointer"
+                  role="tab"
+                  aria-label={`Produtos vencidos, ${
+                    getProductsByStatus("vencidos").length
+                  } itens`}
+                >
                   Vencidos ({getProductsByStatus("vencidos").length})
                 </TabsTrigger>
-                <TabsTrigger value="doados" className="cursor-pointer">
+                <TabsTrigger
+                  value="doados"
+                  className="cursor-pointer"
+                  role="tab"
+                  aria-label={`Produtos doados, ${
+                    getProductsByStatus("doados").length
+                  } itens`}
+                >
                   Doados ({getProductsByStatus("doados").length})
                 </TabsTrigger>
               </TabsList>
@@ -398,7 +377,11 @@ export default function Component() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white mt-16">
+      <footer
+        className="bg-gray-800 text-white mt-16"
+        id="footer"
+        tabIndex={-1}
+      >
         <div className="max-w-7xl mx-auto px-4 py-12">
           {/* Newsletter Section */}
           <div className="mb-12">

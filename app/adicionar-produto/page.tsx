@@ -28,6 +28,8 @@ import {
 } from "@/components/ui/dialog";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useProducts } from "@/contexts/products-context";
+// import { AccessibilityBar } from "@/components/accessibility-bar";
+// import { AppHeader } from "@/components/app-header";
 
 interface ValidationErrors {
   photo: boolean;
@@ -161,9 +163,6 @@ export default function AdicionarProduto() {
     router.push("/");
   };
 
-  // Set today's date as min value for expiration date
-  //const today = new Date().toISOString().split("T")[0];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Success Alert */}
@@ -218,75 +217,9 @@ export default function AdicionarProduto() {
         </DialogContent>
       </Dialog>
 
-      {/* Accessibility Bar */}
-      <div className="bg-gray-200 text-xs text-gray-600 px-4 py-1">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex space-x-4">
-            <button type="button" className="hover:underline">
-              Ir para conteúdo [1]
-            </button>
-            <button type="button" className="hover:underline">
-              Ir para menu [2]
-            </button>
-            <button type="button" className="hover:underline">
-              Ir para o rodapé [3]
-            </button>
-            <button type="button" className="hover:underline">
-              Ir para Acessibilidade [4]
-            </button>
-          </div>
-          <div className="flex items-center space-x-4">
-            <span>A+ | A-</span>
-            <span>Alto contraste</span>
-            <span>Desligar Animações</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="bg-gray-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
-                <span className="text-2xl">😊</span>
-              </div>
-              <h1 className="text-2xl font-bold text-orange-500">
-                BARRIGA CHEEA
-              </h1>
-            </div>
-            <nav className="flex items-center space-x-8">
-              <button
-                type="button"
-                className="hover:text-orange-500 transition-colors"
-              >
-                Fale conosco
-              </button>
-              <button
-                type="button"
-                className="hover:text-orange-500 transition-colors"
-              >
-                Quem somos
-              </button>
-              <button
-                type="button"
-                className="hover:text-orange-500 transition-colors"
-              >
-                Onde estamos
-              </button>
-              <button
-                type="button"
-                className="hover:text-orange-500 transition-colors"
-              >
-                Ajuda
-              </button>
-              <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                <span className="text-white">👤</span>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </header>
+      {/* Accessibility Bar and Header */}
+      {/* <AccessibilityBar />
+      <AppHeader /> */}
 
       {/* Breadcrumb */}
       <div className="bg-white border-b">
@@ -360,12 +293,6 @@ export default function AdicionarProduto() {
                       <Upload className="w-4 h-4" />
                       <span className="cursor-pointer">Escolher arquivo</span>
                     </Button>
-                    {/* <Button
-                      type="button"
-                      className="bg-orange-500 hover:bg-orange-600"
-                    >
-                      Buscar
-                    </Button> */}
                   </div>
                   <p className="text-xs text-gray-500 mt-2">
                     Dimensões sugeridas 300px x 300px • Tamanho máximo: 500kb •
