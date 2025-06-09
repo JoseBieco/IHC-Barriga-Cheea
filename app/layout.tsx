@@ -8,6 +8,8 @@ import { KeyboardNavigation } from "@/components/keyboard-navigation";
 import { ScreenReaderAnnouncer } from "@/components/screen-reader-announcer";
 import { AccessibilityBar } from "@/components/accessibility-bar";
 import { AppHeader } from "@/components/app-header";
+import { VLibras } from "@/components/vlibras";
+import { AuthProvider } from "@/contexts/auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,16 +27,19 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <AccessibilityProvider>
-          <ProductsProvider>
-            <ScreenReaderAnnouncer />
-            <KeyboardNavigation />
-            <div className="sticky top-0 z-50">
-              <AccessibilityBar />
-              <AppHeader />
-            </div>
-            {children}
-          </ProductsProvider>
+          <AuthProvider>
+            <ProductsProvider>
+              <ScreenReaderAnnouncer />
+              <KeyboardNavigation />
+              <div className="sticky top-0 z-50">
+                <AccessibilityBar />
+                <AppHeader />
+              </div>
+              {children}
+            </ProductsProvider>
+          </AuthProvider>
         </AccessibilityProvider>
+        <VLibras forceOnload />
       </body>
     </html>
   );

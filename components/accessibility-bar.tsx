@@ -13,6 +13,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useAccessibility } from "@/contexts/accessibility-context";
+import Link from "next/link";
 
 export function AccessibilityBar() {
   const [showFontModal, setShowFontModal] = useState(false);
@@ -62,10 +63,10 @@ export function AccessibilityBar() {
         role="banner"
         aria-label="Barra de acessibilidade"
       >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
           <nav
             aria-label="Links de navegação rápida"
-            className="flex space-x-4"
+            className="flex flex-wrap gap-2 sm:space-x-4"
           >
             <a
               href="#main-content"
@@ -88,24 +89,16 @@ export function AccessibilityBar() {
             >
               Ir para o rodapé [3]
             </a>
-            <button
-              type="button"
-              className="hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500"
-              onClick={() => {
-                const firstAccessibilityButton = document.querySelector(
-                  '[aria-label="Abrir configurações de tamanho de fonte"]'
-                );
-                if (firstAccessibilityButton) {
-                  (firstAccessibilityButton as HTMLElement).focus();
-                }
-              }}
-              aria-label="Ir para controles de acessibilidade"
+            <Link
+              href="/acessibilidade"
+              className="hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500 text-[#E65100] font-medium"
+              aria-label="Ir para página de informações sobre acessibilidade"
             >
               Ir para Acessibilidade [4]
-            </button>
+            </Link>
           </nav>
           <div
-            className="flex items-center space-x-4"
+            className="flex flex-wrap items-center gap-2 sm:space-x-4"
             role="toolbar"
             aria-label="Controles de acessibilidade"
           >
