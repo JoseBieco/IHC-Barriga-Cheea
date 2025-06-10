@@ -50,7 +50,9 @@ export function KeyboardNavigation() {
           '[aria-label="Barra de acessibilidade"]'
         );
         if (accessibilityBar) {
-          const firstButton = accessibilityBar.querySelector("button");
+          const firstButton = accessibilityBar.querySelector(
+            "button, a, [tabindex]"
+          );
           if (firstButton) {
             (firstButton as HTMLElement).focus();
             announceToScreenReader("Navegando para a barra de acessibilidade");
@@ -89,6 +91,12 @@ export function KeyboardNavigation() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [keyboardNavigation, announceToScreenReader]);
+
+  // Melhora a ordem de navegação por Tab incluindo VLibras
+  // Remover a função improveTabOrder que está causando o erro de hidratação
+  // e substituir por uma abordagem mais segura
+
+  // Remover este useEffect que está causando o problema:
 
   return null;
 }

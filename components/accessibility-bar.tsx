@@ -91,7 +91,7 @@ export function AccessibilityBar() {
             </a>
             <Link
               href="/acessibilidade"
-              className="hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500 text-[#E65100] font-medium"
+              className="hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500  font-medium"
               aria-label="Ir para página de informações sobre acessibilidade"
             >
               Ir para Acessibilidade [4]
@@ -154,7 +154,7 @@ export function AccessibilityBar() {
 
       {/* Font Size Modal */}
       <Dialog open={showFontModal} onOpenChange={setShowFontModal}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent>
           <DialogHeader>
             <DialogTitle>Ajustar tamanho da fonte</DialogTitle>
             <DialogDescription>

@@ -11,6 +11,7 @@ import {
 import { LogOut, User, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { BarriguinhaCheeaIcon } from "./barriguinha-cheea-icon";
 
 export function AppHeader() {
   const { isAuthenticated, currentUser, logout } = useAuth();
@@ -41,14 +42,12 @@ export function AppHeader() {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div
-              className="w-12 h-12 bg-[#F57C00] rounded-full flex items-center justify-center"
+              className="w-12 h-12  flex items-center justify-center" /* bg-[#F57C00] rounded-full */
               aria-hidden="true"
               role="img"
               aria-label="Logo do Barriga Cheea - emoji sorridente"
             >
-              <span className="text-2xl" aria-hidden="true">
-                😊
-              </span>
+              <BarriguinhaCheeaIcon />
             </div>
             <Link href="/" aria-label="Ir para página inicial do Barriga Cheea">
               <h1 className="text-xl md:text-2xl font-bold text-[#F57C00] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded transition-colors hover:text-[#E65100]">

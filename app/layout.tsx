@@ -10,6 +10,7 @@ import { AccessibilityBar } from "@/components/accessibility-bar";
 import { AppHeader } from "@/components/app-header";
 import { VLibras } from "@/components/vlibras";
 import { AuthProvider } from "@/contexts/auth-context";
+import { AppFooter } from "@/components/app-footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,11 +36,12 @@ export default function RootLayout({
                 <AccessibilityBar />
                 <AppHeader />
               </div>
+              <VLibras forceOnload />
               {children}
+              <AppFooter />
             </ProductsProvider>
           </AuthProvider>
         </AccessibilityProvider>
-        <VLibras forceOnload />
       </body>
     </html>
   );

@@ -2,16 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Search,
-  Calendar,
-  Clock,
-  MapPin,
-  Plus,
-  Instagram,
-  Facebook,
-  Twitter,
-} from "lucide-react";
+import { Search, Calendar, Clock, MapPin, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -187,7 +178,10 @@ export default function Component() {
             href="/adicionar-produto"
             aria-label="Adicionar novo produto ou sacola"
           >
-            <Button className="bg-[#E65100] hover:bg-[#F57C00] text-[#EBEBEB] px-4 md:px-6 py-2 rounded-md cursor-pointer transition-colors w-full sm:w-auto">
+            <Button
+              className="bg-[#E65100] hover:bg-[#F57C00] text-[#EBEBEB] px-4 md:px-6 py-2 rounded-md cursor-pointer transition-colors w-full sm:w-auto"
+              aria-hidden="true"
+            >
               <Plus className="w-4 h-4 mr-2" aria-hidden="true" />
               <span className="text-sm md:text-base">
                 Adicionar produto ou sacola
@@ -324,7 +318,11 @@ export default function Component() {
                 >
                   Resumo
                 </h4>
-                <div className="space-y-2 text-sm">
+                <div
+                  className="space-y-2 text-sm"
+                  aria-description="Menu com 4 separações. Inicia-se na partição 'Em separação', depois 'Liberados', 'Vencidos' e 
+                  por fim 'Doados'. Você deve navegar pelas setas do teclado (direita e esquerda)."
+                >
                   <div
                     className="flex justify-between"
                     aria-label={`${
@@ -472,142 +470,6 @@ export default function Component() {
           </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer
-        className="bg-[#212121] text-[#EBEBEB] mt-16"
-        id="footer"
-        tabIndex={-1}
-        role="contentinfo"
-        aria-label="Rodapé do site"
-      >
-        <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-          {/* Newsletter Section */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-xl md:text-2xl font-bold mb-2">
-              Assine a nossa <span className="text-[#F57C00]">newsletter</span>
-            </h3>
-            <p className="text-[#EBEBEB] mb-4 md:mb-6 text-sm md:text-base">
-              Fique por dentro das últimas notícias, anúncios e artigos.
-            </p>
-            <form
-              className="flex flex-col sm:flex-row max-w-md gap-2 sm:gap-0"
-              role="form"
-              aria-label="Formulário de inscrição na newsletter"
-            >
-              <Input
-                type="email"
-                placeholder="Digite seu email"
-                className="rounded-r-none sm:rounded-r-none rounded-l-md border-gray-600 bg-[#FEFEFF] text-gray-800 flex-1"
-                aria-label="Digite seu endereço de email para receber nossa newsletter"
-                aria-required="true"
-              />
-              <Button
-                className="bg-[#E65100] hover:bg-[#F57C00] rounded-l-none sm:rounded-l-none rounded-r-md px-4 md:px-6 text-[#EBEBEB] transition-colors"
-                type="submit"
-                aria-label="Inscrever-se na newsletter"
-              >
-                Inscrever-se
-              </Button>
-            </form>
-          </div>
-
-          {/* Footer Links */}
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-t border-gray-600 pt-6 md:pt-8 gap-6 lg:gap-0">
-            <div className="flex items-center space-x-3">
-              <div
-                className="w-8 h-8 bg-[#F57C00] rounded-full flex items-center justify-center"
-                role="img"
-                aria-label="Logo do Barriga Cheea"
-              >
-                <span className="text-lg" aria-hidden="true">
-                  😊
-                </span>
-              </div>
-              <h4 className="text-lg md:text-xl font-bold text-[#F57C00]">
-                BARRIGA CHEEA
-              </h4>
-            </div>
-
-            <nav
-              className="flex flex-wrap gap-4 md:gap-6 order-3 lg:order-2"
-              aria-label="Links do rodapé"
-              role="navigation"
-            >
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Ir para página inicial"
-              >
-                Início
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Conhecer mais sobre a organização"
-              >
-                Quem somos
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Entender como funciona a plataforma"
-              >
-                Funcionamento
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Entrar em contato conosco"
-              >
-                Fale conosco
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Obter ajuda e suporte"
-              >
-                Ajuda
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base"
-                aria-label="Encontrar nossas localizações"
-              >
-                Onde estamos
-              </Link>
-            </nav>
-
-            <div
-              className="flex space-x-4 order-2 lg:order-3"
-              role="group"
-              aria-label="Links para redes sociais"
-            >
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors"
-                aria-label="Seguir no Instagram"
-              >
-                <Instagram className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors"
-                aria-label="Seguir no Facebook"
-              >
-                <Facebook className="w-5 h-5" aria-hidden="true" />
-              </Link>
-              <Link
-                href="#"
-                className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors"
-                aria-label="Seguir no Twitter"
-              >
-                <Twitter className="w-5 h-5" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
