@@ -42,11 +42,14 @@ export default function CadastroSucessoPage() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="text-sm text-gray-600">
-            <Link href="/" className="hover:text-orange-500">
+            <Link href="/" className="hover:text-orange-500 cursor-pointer">
               Página inicial
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/login" className="hover:text-orange-500">
+            <Link
+              href="/login"
+              className="hover:text-orange-500 cursor-pointer"
+            >
               Entrar
             </Link>
             <span className="mx-2">/</span>
@@ -98,7 +101,7 @@ export default function CadastroSucessoPage() {
                     type="button"
                     onClick={handleResendEmail}
                     disabled={isResending || !email}
-                    className="text-blue-600 hover:underline font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="text-blue-600 hover:underline font-medium disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {isResending ? "Reenviando..." : "Reenviar"}
                   </button>
@@ -127,13 +130,16 @@ export default function CadastroSucessoPage() {
 
               <div className="space-y-4">
                 <Link href="/login">
-                  <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3">
+                  <Button className="w-full bg-[#E65100] hover:bg-[#F57C00] text-black py-3 cursor-pointer">
                     Ir para Login
                   </Button>
                 </Link>
 
                 <Link href="/">
-                  <Button variant="outline" className="w-full py-3">
+                  <Button
+                    variant="outline"
+                    className="w-full py-3 cursor-pointer"
+                  >
                     Voltar ao Início
                   </Button>
                 </Link>

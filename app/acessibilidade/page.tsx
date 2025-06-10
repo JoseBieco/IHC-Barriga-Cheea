@@ -626,7 +626,7 @@ export default function AcessibilidadePage() {
                 <h4 className="font-semibold mb-2">Leitores testados:</h4>
                 <ul className="space-y-2 text-sm">
                   <li>• NVDA (Windows) - Gratuito</li>
-                  <li>• JAWS (Windows) - Comercial</li>
+                  {/* <li>• JAWS (Windows) - Comercial</li> */}
                   <li>• VoiceOver (Mac/iOS) - Nativo</li>
                   <li>• TalkBack (Android) - Nativo</li>
                   <li>• Orca (Linux) - Gratuito</li>
@@ -923,26 +923,7 @@ export default function AcessibilidadePage() {
         className="bg-[#212121] text-[#EBEBEB] mt-16"
         role="contentinfo"
         aria-label="Rodapé do site"
-      >
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <div
-                className="w-8 h-8 bg-[#F57C00] rounded-full flex items-center justify-center"
-                role="img"
-                aria-label="Logo do Barriga Cheea"
-              >
-                <span className="text-lg" aria-hidden="true">
-                  😊
-                </span>
-              </div>
-              <h4 className="text-xl font-bold text-[#F57C00]">
-                BARRIGA CHEEA
-              </h4>
-            </div>
-          </div>
-        </div>
-      </footer>
+      ></footer>
     </div>
   );
 }

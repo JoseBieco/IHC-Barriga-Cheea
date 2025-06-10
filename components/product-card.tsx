@@ -548,7 +548,7 @@ export function ProductCard({ product }: ProductCardProps) {
         aria-labelledby="delete-dialog-title"
         aria-describedby="delete-dialog-description"
       >
-        <DialogContent role="alertdialog">
+        <DialogContent role="alertdialog" className="sm:max-w-lg">
           <DialogHeader>
             <DialogTitle id="delete-dialog-title">
               Confirmar exclusão

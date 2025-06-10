@@ -290,7 +290,7 @@ export default function LoginPage() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#E65100] hover:bg-[#F57C00] text-white py-3 cursor-pointer focus:ring-2 focus:ring-[#F57C00] focus:ring-offset-2 transition-colors"
+                  className="w-full bg-[#F57C00] hover:bg-[#E65100] text-black py-3 cursor-pointer focus:ring-2 focus:ring-[#F57C00] focus:ring-offset-2 transition-colors"
                   disabled={isLoading}
                   aria-describedby="submit-help"
                 >
@@ -303,7 +303,7 @@ export default function LoginPage() {
                 <div className="text-center">
                   <Link
                     href="/esqueci-senha"
-                    className="text-red-600 hover:text-red-700 hover:underline text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 rounded transition-colors"
+                    className="text-red-600 hover:text-red-700 hover:underline text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 rounded transition-colors underline underline-offset-2"
                     aria-label="Recuperar senha esquecida"
                   >
                     Esqueci a senha
@@ -352,7 +352,7 @@ export default function LoginPage() {
                   Ainda não possui uma conta?{" "}
                   <Link
                     href="/cadastro"
-                    className="text-gray-800 hover:text-[#E65100] hover:underline font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded transition-colors"
+                    className=" text-[#E65100] hover:text-[#F57C00] underline font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded transition-colors"
                     aria-label="Criar nova conta de usuário"
                   >
                     Cadastre-se

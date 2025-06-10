@@ -143,7 +143,7 @@ export default function AdicionarProduto() {
       setShowSuccessAlert(false);
       // Redirect to main page
       router.push("/");
-    }, 3000);
+    }, 1000);
   };
 
   const handleCancel = () => {
@@ -183,7 +183,7 @@ export default function AdicionarProduto() {
 
       {/* Cancel Confirmation Dialog */}
       <Dialog open={showCancelDialog} onOpenChange={setShowCancelDialog}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-lg">
           <DialogHeader>
             <DialogTitle>Confirmar cancelamento</DialogTitle>
             <DialogDescription>
@@ -218,11 +218,11 @@ export default function AdicionarProduto() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <nav className="text-sm text-gray-600">
-            <Link href="/" className="hover:text-orange-500">
+            <Link href="/" className="hover:text-orange-500 cursor-pointer">
               Página inicial
             </Link>
             <span className="mx-2">/</span>
-            <Link href="/" className="hover:text-orange-500">
+            <Link href="/" className="hover:text-orange-500 cursor-pointer">
               Doador
             </Link>
             <span className="mx-2">/</span>
@@ -318,7 +318,7 @@ export default function AdicionarProduto() {
                   onChange={(e) =>
                     handleInputChange("photoDescription", e.target.value)
                   }
-                  className={`min-h-[100px] ${
+                  className={`min-h-[100px] cursor-text ${
                     validationErrors.photoDescription
                       ? "border-red-500 focus:border-red-500"
                       : ""
@@ -348,11 +348,11 @@ export default function AdicionarProduto() {
                   onChange={(e) =>
                     handleInputChange("productName", e.target.value)
                   }
-                  className={
+                  className={`cursor-text ${
                     validationErrors.productName
                       ? "border-red-500 focus:border-red-500"
                       : ""
-                  }
+                  }`}
                 />
                 {validationErrors.productName && (
                   <p className="text-xs text-red-600 mt-1">
@@ -375,11 +375,11 @@ export default function AdicionarProduto() {
                   onChange={(e) =>
                     handleInputChange("pickupInfo", e.target.value)
                   }
-                  className={
+                  className={`cursor-text ${
                     validationErrors.pickupInfo
                       ? "border-red-500 focus:border-red-500"
                       : ""
-                  }
+                  }`}
                 />
                 {validationErrors.pickupInfo && (
                   <p className="text-xs text-red-600 mt-1">
@@ -444,11 +444,11 @@ export default function AdicionarProduto() {
                   onChange={(e) =>
                     handleInputChange("releaseTime", e.target.value)
                   }
-                  className={
+                  className={`cursor-text ${
                     validationErrors.releaseTime
                       ? "border-red-500 focus:border-red-500"
                       : ""
-                  }
+                  }`}
                 />
                 {validationErrors.releaseTime && (
                   <p className="text-xs text-red-600 mt-1">
@@ -473,7 +473,7 @@ export default function AdicionarProduto() {
                 onChange={(e) =>
                   handleInputChange("productDescription", e.target.value)
                 }
-                className={`min-h-[150px] ${
+                className={`min-h-[150px] cursor-text ${
                   validationErrors.productDescription
                     ? "border-red-500 focus:border-red-500"
                     : ""
@@ -499,7 +499,7 @@ export default function AdicionarProduto() {
             <div className="flex justify-between items-center pt-6">
               <Button
                 type="button"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-2 text-black cursor-pointer"
+                className="bg-[#F57C00] hover:bg-[#E65100] text-black px-8 py-2 cursor-pointer"
                 onClick={handleSave}
               >
                 Salvar

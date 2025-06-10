@@ -154,7 +154,7 @@ export function AccessibilityBar() {
 
       {/* Font Size Modal */}
       <Dialog open={showFontModal} onOpenChange={setShowFontModal}>
-        <DialogContent>
+        <DialogContent className="w-auto h-auto flex flex-col">
           <DialogHeader>
             <DialogTitle>Ajustar tamanho da fonte</DialogTitle>
             <DialogDescription>
@@ -168,7 +168,7 @@ export function AccessibilityBar() {
               <p className="text-2xl font-bold">{getFontSizePercentage()}%</p>
             </div>
 
-            <div className="flex justify-center space-x-4">
+            <div className="flex justify-center space-x-4 flex flex-row flex-wrap">
               <Button
                 variant="outline"
                 size="lg"

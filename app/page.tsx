@@ -67,7 +67,7 @@ export default function Component() {
       <p className="text-gray-600 mb-6 text-sm md:text-base">
         <Link
           href="/adicionar-produto"
-          className="text-[#E65100] hover:text-[#F57C00] hover:underline underline underline-offset-2 transition-colors"
+          className="text-[#E65100] hover:text-[#F57C00] hover:underline underline underline-offset-2 transition-colors cursor-pointer"
           aria-label="Adicionar primeiro produto ou sacola"
         >
           Adicionar
@@ -128,7 +128,7 @@ export default function Component() {
           >
             <Link
               href="/"
-              className="hover:text-[#E65100] transition-colors"
+              className="hover:text-[#E65100] transition-colors cursor-pointer"
               aria-label="Voltar para página inicial"
             >
               Página inicial
@@ -179,7 +179,7 @@ export default function Component() {
             aria-label="Adicionar novo produto ou sacola"
           >
             <Button
-              className="bg-[#E65100] hover:bg-[#F57C00] text-[#EBEBEB] px-4 md:px-6 py-2 rounded-md cursor-pointer transition-colors w-full sm:w-auto"
+              className="bg-[#F57C00] hover:bg-[#E65100] text-black px-4 md:px-6 py-2 rounded-md cursor-pointer transition-colors w-full sm:w-auto"
               aria-hidden="true"
             >
               <Plus className="w-4 h-4 mr-2" aria-hidden="true" />
@@ -217,7 +217,7 @@ export default function Component() {
                   <Input
                     type="text"
                     placeholder="Buscar"
-                    className="pl-10 border-gray-300"
+                    className="pl-10 border-gray-300 cursor-text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     aria-label="Buscar produtos por nome, descrição ou local de retirada"
@@ -240,7 +240,7 @@ export default function Component() {
                 <div className="space-y-3">
                   <Button
                     variant={activeSort === "date" ? "default" : "ghost"}
-                    className={`flex items-center justify-start w-full text-sm ${
+                    className={`flex items-center justify-start w-full text-sm cursor-pointer ${
                       activeSort === "date"
                         ? "bg-orange-100 text-[#E65100] hover:bg-orange-200"
                         : "text-gray-600 hover:text-[#E65100]"
@@ -262,7 +262,7 @@ export default function Component() {
 
                   <Button
                     variant={activeSort === "time" ? "default" : "ghost"}
-                    className={`flex items-center justify-start w-full text-sm ${
+                    className={`flex items-center justify-start w-full text-sm cursor-pointer ${
                       activeSort === "time"
                         ? "bg-orange-100 text-[#E65100] hover:bg-orange-200"
                         : "text-gray-600 hover:text-[#E65100]"
@@ -284,7 +284,7 @@ export default function Component() {
 
                   <Button
                     variant={activeSort === "proximity" ? "default" : "ghost"}
-                    className={`flex items-center justify-start w-full text-sm ${
+                    className={`flex items-center justify-start w-full text-sm cursor-pointer ${
                       activeSort === "proximity"
                         ? "bg-orange-100 text-[#E65100] hover:bg-orange-200"
                         : "text-gray-600 hover:text-[#E65100]"
