@@ -38,15 +38,19 @@ interface ProductsContextType {
 const ProductsContext = createContext<ProductsContextType | undefined>(
   undefined
 );
-
+async function urlToFile(url, filename, mimeType) {
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return new File([blob], filename, { type: mimeType });
+}
 // Mock data for demonstration
-const createMockProducts = (): Product[] => {
+const createMockProducts = async(): Promise<Product[]> => {
   const mockProducts: Product[] = [
     {
       id: "1",
-      photo: null,
+      photo: await urlToFile('/images/cesta_frutas.png', 'cesta_frutas.png', 'image/png'),
       photoDescription:
-        "Cesta com frutas frescas variadas incluindo maçãs, bananas e laranjas",
+        "1",
       productName: "Cesta de Frutas Variadas",
       pickupInfo:
         "Retirada na Rua das Flores, 123 - Centro. Disponível das 8h às 18h",
@@ -59,8 +63,8 @@ const createMockProducts = (): Product[] => {
     },
     {
       id: "2",
-      photo: null,
-      photoDescription: "Pacote com pães frescos de padaria artesanal",
+      photo: await urlToFile('/images/paes_frescos.png', 'paes_frescos.png', 'image/png'),
+      photoDescription: "Pães frescos de padaria artesanal",
       productName: "Pães Artesanais Frescos",
       pickupInfo: "Padaria do João - Av. Principal, 456. Retirar até 20h",
       expirationDate: "2025-02-02",
@@ -72,7 +76,7 @@ const createMockProducts = (): Product[] => {
     },
     {
       id: "3",
-      photo: null,
+      photo: await urlToFile('/images/legumes_2.png', 'legumes_2.png', 'image/png'),
       photoDescription: "Legumes frescos da horta orgânica local",
       productName: "Legumes Orgânicos da Horta",
       pickupInfo: "Feira Orgânica - Praça Central. Sábados das 7h às 12h",
@@ -85,7 +89,7 @@ const createMockProducts = (): Product[] => {
     },
     {
       id: "4",
-      photo: null,
+      photo: await urlToFile('/images/marmitas.png', 'marmitas.png', 'image/png'),
       photoDescription: "Refeições prontas congeladas caseiras",
       productName: "Marmitas Caseiras Congeladas",
       pickupInfo:
@@ -97,36 +101,36 @@ const createMockProducts = (): Product[] => {
       status: "liberados",
       createdAt: new Date("2025-01-25T16:45:00"),
     },
-    {
-      id: "5",
-      photo: null,
-      photoDescription: "Produtos de limpeza e higiene pessoal",
-      productName: "Kit Higiene e Limpeza",
-      pickupInfo: "Farmácia Popular - Shopping Center, Loja 45",
-      expirationDate: "2025-12-31",
-      releaseTime: "6 horas",
-      productDescription:
-        "Kit completo com produtos de higiene pessoal e limpeza doméstica. Inclui sabonete, shampoo, pasta de dente, detergente e desinfetante. Produtos de qualidade para o cuidado da família.",
-      status: "doados",
-      createdAt: new Date("2025-01-24T11:30:00"),
-    },
-    {
-      id: "6",
-      photo: null,
-      photoDescription: "Roupas infantis em bom estado de conservação",
-      productName: "Roupas Infantis Variadas",
-      pickupInfo: "Bazar Beneficente - Igreja São José, Rua da Paz, 321",
-      expirationDate: "2025-06-30",
-      releaseTime: "24 horas",
-      productDescription:
-        "Roupas infantis em excelente estado, tamanhos de 2 a 8 anos. Inclui camisetas, calças, vestidos e casacos. Peças limpas e bem conservadas, ideais para crianças em crescimento.",
-      status: "em-liberacao",
-      createdAt: new Date("2025-01-23T13:20:00"),
-    },
+    // {
+    //   id: "5",
+    //   photo: null,
+    //   photoDescription: "Produtos de limpeza e higiene pessoal",
+    //   productName: "Kit Higiene e Limpeza",
+    //   pickupInfo: "Farmácia Popular - Shopping Center, Loja 45",
+    //   expirationDate: "2025-12-31",
+    //   releaseTime: "6 horas",
+    //   productDescription:
+    //     "Kit completo com produtos de higiene pessoal e limpeza doméstica. Inclui sabonete, shampoo, pasta de dente, detergente e desinfetante. Produtos de qualidade para o cuidado da família.",
+    //   status: "doados",
+    //   createdAt: new Date("2025-01-24T11:30:00"),
+    // },
+    // {
+    //   id: "6",
+    //   photo: null,
+    //   photoDescription: "Roupas infantis em bom estado de conservação",
+    //   productName: "Roupas Infantis Variadas",
+    //   pickupInfo: "Bazar Beneficente - Igreja São José, Rua da Paz, 321",
+    //   expirationDate: "2025-06-30",
+    //   releaseTime: "24 horas",
+    //   productDescription:
+    //     "Roupas infantis em excelente estado, tamanhos de 2 a 8 anos. Inclui camisetas, calças, vestidos e casacos. Peças limpas e bem conservadas, ideais para crianças em crescimento.",
+    //   status: "em-liberacao",
+    //   createdAt: new Date("2025-01-23T13:20:00"),
+    // },
     {
       id: "7",
-      photo: null,
-      photoDescription: "Produtos lácteos frescos da fazenda local",
+      photo: await urlToFile('/images/lacteos.png', 'lacteos.png', 'image/png'),
+      photoDescription: "Produtos lácteos frescos da fazenda local como leite, queijo e iogurte",
       productName: "Laticínios Frescos da Fazenda",
       pickupInfo:
         "Fazenda Esperança - Estrada Rural, Km 15. Todos os dias das 6h às 10h",
@@ -137,72 +141,72 @@ const createMockProducts = (): Product[] => {
       status: "vencidos",
       createdAt: new Date("2025-01-22T07:10:00"),
     },
-    {
-      id: "8",
-      photo: null,
-      photoDescription: "Livros didáticos e literatura para todas as idades",
-      productName: "Livros Educativos e Literatura",
-      pickupInfo: "Biblioteca Comunitária - Centro Cultural, 2º andar",
-      expirationDate: "2025-12-31",
-      releaseTime: "12 horas",
-      productDescription:
-        "Coleção de livros didáticos, romances, livros infantis e material educativo. Perfeito para estudantes, professores e amantes da leitura. Conhecimento que transforma vidas.",
-      status: "liberados",
-      createdAt: new Date("2025-01-21T15:40:00"),
-    },
-    {
-      id: "9",
-      photo: null,
-      photoDescription: "Brinquedos educativos e jogos para crianças",
-      productName: "Brinquedos Educativos",
-      pickupInfo: "Creche Municipal - Rua das Crianças, 159. Horário comercial",
-      expirationDate: "2025-12-31",
-      releaseTime: "8 horas",
-      productDescription:
-        "Brinquedos educativos, jogos de tabuleiro, quebra-cabeças e material pedagógico. Todos higienizados e em bom estado. Diversão e aprendizado garantidos para as crianças.",
-      status: "doados",
-      createdAt: new Date("2025-01-20T12:25:00"),
-    },
-    {
-      id: "10",
-      photo: null,
-      photoDescription: "Medicamentos básicos e material de primeiros socorros",
-      productName: "Kit Primeiros Socorros",
-      pickupInfo:
-        "Posto de Saúde Central - Av. da Saúde, 852. Segunda a sexta, 8h às 17h",
-      expirationDate: "2025-08-15",
-      releaseTime: "1 hora",
-      productDescription:
-        "Kit completo de primeiros socorros com medicamentos básicos, bandagens, antissépticos e termômetro. Essencial para ter em casa em caso de emergências médicas.",
-      status: "em-liberacao",
-      createdAt: new Date("2025-01-19T09:50:00"),
-    },
-    {
-      id: "11",
-      photo: null,
-      photoDescription: "Produtos de panificação artesanal com grãos integrais",
-      productName: "Pães Integrais Artesanais",
-      pickupInfo: "Padaria Vida Saudável - Rua do Bem-Estar, 741",
-      expirationDate: "2025-02-05",
-      releaseTime: "2 horas",
-      productDescription:
-        "Pães integrais feitos com farinha orgânica, sementes e grãos especiais. Rico em fibras e nutrientes, ideal para uma alimentação balanceada e saudável.",
-      status: "liberados",
-      createdAt: new Date("2025-01-18T08:15:00"),
-    },
-    {
-      id: "12",
-      photo: null,
-      photoDescription: "Produtos de limpeza ecológicos biodegradáveis",
-      productName: "Produtos de Limpeza Ecológicos",
-      pickupInfo: "Loja Verde - Shopping Sustentável, Piso 2",
-      expirationDate: "2025-10-30",
-      releaseTime: "5 horas",
-      productDescription:
-        "Linha completa de produtos de limpeza ecológicos e biodegradáveis. Seguros para a família e o meio ambiente. Inclui multiuso, lava-roupas e detergente natural.",
-      status: "vencidos",
-      createdAt: new Date("2025-01-17T14:35:00"),
-    },
+    // {
+    //   id: "8",
+    //   photo: null,
+    //   photoDescription: "Livros didáticos e literatura para todas as idades",
+    //   productName: "Livros Educativos e Literatura",
+    //   pickupInfo: "Biblioteca Comunitária - Centro Cultural, 2º andar",
+    //   expirationDate: "2025-12-31",
+    //   releaseTime: "12 horas",
+    //   productDescription:
+    //     "Coleção de livros didáticos, romances, livros infantis e material educativo. Perfeito para estudantes, professores e amantes da leitura. Conhecimento que transforma vidas.",
+    //   status: "liberados",
+    //   createdAt: new Date("2025-01-21T15:40:00"),
+    // },
+    // {
+    //   id: "9",
+    //   photo: null,
+    //   photoDescription: "Brinquedos educativos e jogos para crianças",
+    //   productName: "Brinquedos Educativos",
+    //   pickupInfo: "Creche Municipal - Rua das Crianças, 159. Horário comercial",
+    //   expirationDate: "2025-12-31",
+    //   releaseTime: "8 horas",
+    //   productDescription:
+    //     "Brinquedos educativos, jogos de tabuleiro, quebra-cabeças e material pedagógico. Todos higienizados e em bom estado. Diversão e aprendizado garantidos para as crianças.",
+    //   status: "doados",
+    //   createdAt: new Date("2025-01-20T12:25:00"),
+    // },
+    // {
+    //   id: "10",
+    //   photo: null,
+    //   photoDescription: "Medicamentos básicos e material de primeiros socorros",
+    //   productName: "Kit Primeiros Socorros",
+    //   pickupInfo:
+    //     "Posto de Saúde Central - Av. da Saúde, 852. Segunda a sexta, 8h às 17h",
+    //   expirationDate: "2025-08-15",
+    //   releaseTime: "1 hora",
+    //   productDescription:
+    //     "Kit completo de primeiros socorros com medicamentos básicos, bandagens, antissépticos e termômetro. Essencial para ter em casa em caso de emergências médicas.",
+    //   status: "em-liberacao",
+    //   createdAt: new Date("2025-01-19T09:50:00"),
+    // },
+    // {
+    //   id: "11",
+    //   photo: null,
+    //   photoDescription: "Produtos de panificação artesanal com grãos integrais",
+    //   productName: "Pães Integrais Artesanais",
+    //   pickupInfo: "Padaria Vida Saudável - Rua do Bem-Estar, 741",
+    //   expirationDate: "2025-02-05",
+    //   releaseTime: "2 horas",
+    //   productDescription:
+    //     "Pães integrais feitos com farinha orgânica, sementes e grãos especiais. Rico em fibras e nutrientes, ideal para uma alimentação balanceada e saudável.",
+    //   status: "liberados",
+    //   createdAt: new Date("2025-01-18T08:15:00"),
+    // },
+    // {
+    //   id: "12",
+    //   photo: null,
+    //   photoDescription: "Produtos de limpeza ecológicos biodegradáveis",
+    //   productName: "Produtos de Limpeza Ecológicos",
+    //   pickupInfo: "Loja Verde - Shopping Sustentável, Piso 2",
+    //   expirationDate: "2025-10-30",
+    //   releaseTime: "5 horas",
+    //   productDescription:
+    //     "Linha completa de produtos de limpeza ecológicos e biodegradáveis. Seguros para a família e o meio ambiente. Inclui multiuso, lava-roupas e detergente natural.",
+    //   status: "vencidos",
+    //   createdAt: new Date("2025-01-17T14:35:00"),
+    // },
   ];
 
   return mockProducts;
@@ -213,8 +217,11 @@ export function ProductsProvider({ children }: { children: ReactNode }) {
 
   // Initialize with mock data on component mount
   useEffect(() => {
-    const mockProducts = createMockProducts();
-    setProducts(mockProducts);
+    async function fetchMockProducts() {
+      const mockProducts = await createMockProducts();
+      setProducts(mockProducts);
+    }
+    fetchMockProducts();
   }, []);
 
   // Função auxiliar para determinar o status com base na data de validade
