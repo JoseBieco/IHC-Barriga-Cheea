@@ -143,7 +143,7 @@ export default function AdicionarProduto() {
       setShowSuccessAlert(false);
       // Redirect to main page
       router.push("/");
-    }, 1000);
+    }, 2500);
   };
 
   const handleCancel = () => {

@@ -156,7 +156,7 @@ export default function EditarProduto() {
       setShowValidationAlert(true);
       setTimeout(() => {
         setShowValidationAlert(false);
-      }, 1000);
+      }, 2500);
       return;
     }
 
@@ -176,7 +176,7 @@ export default function EditarProduto() {
       setShowSuccessAlert(false);
       // Redirect to main page
       router.push("/");
-    }, 1000);
+    }, 2500);
   };
 
   const handleCancel = () => {
