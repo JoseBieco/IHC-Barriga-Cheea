@@ -146,7 +146,10 @@ export function AppFooter() {
         <div className="mt-8 pt-6 border-t border-gray-600 text-center">
           <div className="inline-block px-4 py-2 rounded-lg">
             <div className="flex text-white text-sm font-semibold items-center justify-center">
-              <span class="mr-2"><PersonStanding /></span> Comprometidos com a inclusão digital e acessibilidade para todos.
+              <span className="mr-2">
+                <PersonStanding />
+              </span>{" "}
+              Comprometidos com a inclusão digital e acessibilidade para todos.
             </div>
           </div>
         </div>
