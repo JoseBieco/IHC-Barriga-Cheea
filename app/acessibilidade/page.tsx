@@ -243,7 +243,7 @@ export default function AcessibilidadePage() {
           level: "A",
           description: "Propósito de cada link é claro pelo texto ou contexto.",
           implementation:
-            "Links têm textos descritivos ou aria-label explicativo, evitando textos genéricos como 'clique aqui'.",
+            "Links têm textos descritivos ou aria-label explicativo, evitando textos genéricos como 'saiba mais'.",
         },
         {
           id: "2.4.6",
@@ -716,7 +716,7 @@ export default function AcessibilidadePage() {
                   garantindo que o site seja perceptível, operável,
                   compreensível e robusto.{" "}
                   <span className="text-[#E65100] font-medium">
-                    Clique para ver detalhes.
+                    VePrecisa de Ajuda?r detalhes.
                   </span>
                 </p>
               </div>
@@ -842,7 +842,7 @@ export default function AcessibilidadePage() {
               Se você encontrar alguma barreira de acessibilidade ou precisar de
               assistência adicional, entre em contato conosco:
             </p>
-            <div className="bg-[#F57C00] bg-opacity-10 p-4 rounded-lg">
+            <div className="bg-[#F5f5f5] bg-opacity-10 p-4 rounded-lg border-l-4 border-l-[#F57C00]">
               <div className="space-y-2">
                 <p>
                   <strong>Email:</strong> acessibilidade@barrigacheea.org.br

@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={inter.className + " bg-gray-50"}>
         <AccessibilityProvider>
           <AuthProvider>
             <ProductsProvider>
