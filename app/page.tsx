@@ -147,6 +147,7 @@ export default function Component() {
       {/* Hero Image Placeholder */}
       <div className="relative h-48 md:h-64 overflow-hidden bg-black">
         <Image
+          className="object-cover w-full h-full"
           src={introImg}
           alt="Caixa de papelão com óleo de cozinha, biscoitos, pães, e macarrão dentro de sacolas, e potes de vidro com tampa de alumínio"
         />
@@ -318,7 +319,7 @@ export default function Component() {
                 </h4>
                 <div
                   className="space-y-2 text-sm"
-                  aria-description="Menu com 4 separações. Inicia-se na partição 'Em separação', depois 'Liberados', 'Vencidos' e 
+                  aria-description="Menu com 4 separações. Inicia-se na partição 'Em separação', depois 'Liberados', 'Vencidos' e
                   por fim 'Doados'. Você deve navegar pelas setas do teclado (direita e esquerda)."
                 >
                   <div
