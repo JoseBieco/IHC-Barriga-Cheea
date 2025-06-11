@@ -5,6 +5,7 @@ import { FaInstagram as Instagram } from "react-icons/fa";
 import { AiOutlineX as Twitter } from "react-icons/ai";
 import { CiFacebook as Facebook } from "react-icons/ci";
 import { BarriguinhaCheeaIcon } from "./barriguinha-cheea-icon";
+import { PersonStanding } from "lucide-react";
 
 export function AppFooter() {
   return (
@@ -143,10 +144,10 @@ export function AppFooter() {
 
         {/* Selo de Inclusão Digital */}
         <div className="mt-8 pt-6 border-t border-gray-600 text-center">
-          <div className="inline-block bg-[#F57C00] px-4 py-2 rounded-lg">
-            <p className="text-black text-sm font-semibold">
-              Comprometidos com a inclusão digital e acessibilidade para todos.
-            </p>
+          <div className="inline-block px-4 py-2 rounded-lg">
+            <div className="flex text-white text-sm font-semibold items-center justify-center">
+              <span class="mr-2"><PersonStanding /></span> Comprometidos com a inclusão digital e acessibilidade para todos.
+            </div>
           </div>
         </div>
       </div>
