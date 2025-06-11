@@ -53,7 +53,7 @@ const createMockProducts = async (): Promise<Product[]> => {
         "cesta_frutas.png",
         "image/png"
       ),
-      photoDescription: "1",
+      photoDescription: "Cesta com frutas frescas e saudáveis, perfeitas para consumo imediato",
       productName: "Cesta de Frutas Variadas",
       pickupInfo:
         "Retirada na Rua das Flores, 123 - Centro. Disponível das 8h às 18h",

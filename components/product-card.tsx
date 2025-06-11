@@ -501,7 +501,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 <Button
                   variant="outline"
                   onClick={handleEdit}
-                  className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]"
+                  className="bg-[#F57C00] hover:bg-[#E65100] text-black px-8 py-2 cursor-pointer"
                   aria-label="Editar este produto"
                 >
                   <Edit className="h-4 w-4 mr-2" aria-hidden="true" />
@@ -531,10 +531,10 @@ export function ProductCard({ product }: ProductCardProps) {
               <Button
                 variant="ghost"
                 onClick={() => setShowDetailsDialog(false)}
-                className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]"
+                className="text-red-600 hover:text-red-700 cursor-pointer"
                 aria-label="Fechar janela de detalhes"
               >
-                Fechar
+                <p className="underline underline-offset-2">Fechar</p>
               </Button>
             </div>
           </DialogFooter>
