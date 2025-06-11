@@ -130,45 +130,108 @@
   --font-scale: 1;
 }
 
-/* Font scaling system */
+/* Font scaling system - aplicado a TODOS os elementos */
+* {
+  font-size: calc(1em * var(--font-scale)) !important;
+}
+
 .text-xs {
-  font-size: calc(0.75rem * var(--font-scale));
+  font-size: calc(0.75rem * var(--font-scale)) !important;
 }
 
 .text-sm {
-  font-size: calc(0.875rem * var(--font-scale));
+  font-size: calc(0.875rem * var(--font-scale)) !important;
 }
 
 .text-base {
-  font-size: calc(1rem * var(--font-scale));
+  font-size: calc(1rem * var(--font-scale)) !important;
 }
 
 .text-lg {
-  font-size: calc(1.125rem * var(--font-scale));
+  font-size: calc(1.125rem * var(--font-scale)) !important;
 }
 
 .text-xl {
-  font-size: calc(1.25rem * var(--font-scale));
+  font-size: calc(1.25rem * var(--font-scale)) !important;
 }
 
 .text-2xl {
-  font-size: calc(1.5rem * var(--font-scale));
+  font-size: calc(1.5rem * var(--font-scale)) !important;
 }
 
 .text-3xl {
-  font-size: calc(1.875rem * var(--font-scale));
+  font-size: calc(1.875rem * var(--font-scale)) !important;
 }
 
 .text-4xl {
-  font-size: calc(2.25rem * var(--font-scale));
+  font-size: calc(2.25rem * var(--font-scale)) !important;
 }
 
 .text-5xl {
-  font-size: calc(3rem * var(--font-scale));
+  font-size: calc(3rem * var(--font-scale)) !important;
 }
 
 .text-6xl {
-  font-size: calc(3.75rem * var(--font-scale));
+  font-size: calc(3.75rem * var(--font-scale)) !important;
+}
+
+/* Ajuste para ícones escalarem com o tamanho da fonte */
+svg {
+  width: calc(1em * var(--icon-scale, 1));
+  height: calc(1em * var(--icon-scale, 1));
+}
+
+/* Ajuste para ícones específicos */
+.h-3,
+.w-3 {
+  width: calc(0.75rem * var(--font-scale)) !important;
+  height: calc(0.75rem * var(--font-scale)) !important;
+}
+
+.h-4,
+.w-4 {
+  width: calc(1rem * var(--font-scale)) !important;
+  height: calc(1rem * var(--font-scale)) !important;
+}
+
+.h-5,
+.w-5 {
+  width: calc(1.25rem * var(--font-scale)) !important;
+  height: calc(1.25rem * var(--font-scale)) !important;
+}
+
+.h-6,
+.w-6 {
+  width: calc(1.5rem * var(--font-scale)) !important;
+  height: calc(1.5rem * var(--font-scale)) !important;
+}
+
+.size-3 {
+  width: calc(0.75rem * var(--font-scale)) !important;
+  height: calc(0.75rem * var(--font-scale)) !important;
+}
+
+.size-4 {
+  width: calc(1rem * var(--font-scale)) !important;
+  height: calc(1rem * var(--font-scale)) !important;
+}
+
+.size-5 {
+  width: calc(1.25rem * var(--font-scale)) !important;
+  height: calc(1.25rem * var(--font-scale)) !important;
+}
+
+.size-6 {
+  width: calc(1.5rem * var(--font-scale)) !important;
+  height: calc(1.5rem * var(--font-scale)) !important;
+}
+
+/* Aplicar escala de fonte em modais e dialogs */
+[role="dialog"] *,
+[role="alertdialog"] *,
+.modal *,
+.dialog * {
+  font-size: calc(1em * var(--font-scale)) !important;
 }
 
 /* Cursor pointer for interactive elements */
@@ -338,6 +401,60 @@ button:hover.bg-\[#F57C00\] {
   color: #000000 !important;
 }
 
+/* Substituir TODOS os vermelhos por amarelo em alto contraste */
+.high-contrast .text-red-500,
+.high-contrast .text-red-600,
+.high-contrast .text-red-700,
+.high-contrast .text-red-800,
+.high-contrast .text-red-900 {
+  color: #ffde21 !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+}
+
+.high-contrast .bg-red-500,
+.high-contrast .bg-red-600,
+.high-contrast .bg-red-700,
+.high-contrast .bg-red-800,
+.high-contrast .bg-red-900 {
+  background-color: #ffde21 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+.high-contrast .border-red-500,
+.high-contrast .border-red-600,
+.high-contrast .border-red-700,
+.high-contrast .border-red-800,
+.high-contrast .border-red-900 {
+  border-color: #ffde21 !important;
+}
+
+/* Botões destrutivos em alto contraste */
+.high-contrast .bg-destructive,
+.high-contrast button[variant="destructive"],
+.high-contrast .variant-destructive {
+  background-color: #ffde21 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  font-weight: bold !important;
+}
+
+.high-contrast .bg-destructive:hover,
+.high-contrast button[variant="destructive"]:hover,
+.high-contrast .variant-destructive:hover {
+  background-color: #e6c71e !important;
+  color: #000000 !important;
+}
+
+/* Badges destrutivos em alto contraste */
+.high-contrast .badge-destructive,
+.high-contrast [data-variant="destructive"] {
+  background-color: #ffde21 !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
 /* Bordas em alto contraste */
 .high-contrast .border-gray-200,
 .high-contrast .border-gray-300,
@@ -400,13 +517,14 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast a,
 .high-contrast [role="link"] {
   color: #000000 !important;
+  background-color: #ffffff !important;
   text-decoration: underline !important;
   font-weight: bold !important;
 }
 
 .high-contrast a:hover,
 .high-contrast [role="link"]:hover {
-  background-color: #cccccc !important;
+  background-color: #d1d1d1 !important;
   color: #000000 !important;
 }
 
@@ -430,9 +548,6 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast .text-blue-600,
 .high-contrast .text-blue-700,
 .high-contrast .text-blue-800,
-.high-contrast .text-red-600,
-.high-contrast .text-red-700,
-.high-contrast .text-red-800,
 .high-contrast .text-yellow-600,
 .high-contrast .text-yellow-700,
 .high-contrast .text-yellow-800 {

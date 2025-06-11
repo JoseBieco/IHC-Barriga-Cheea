@@ -28,7 +28,7 @@ const AccessibilityContext = createContext<
 
 const FONT_SIZE_MIN = 0.8;
 const FONT_SIZE_MAX = 1.6;
-const FONT_SIZE_STEP = 0.1;
+const FONT_SIZE_STEP = 0.05; // Reduzido de 0.1 para 0.05 (5% em vez de 10%)
 const FONT_SIZE_DEFAULT = 1.0;
 const ANIMATIONS_DISABLED_DEFAULT = false;
 const KEYBOARD_NAVIGATION_DEFAULT = true;

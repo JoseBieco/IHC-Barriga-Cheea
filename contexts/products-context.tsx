@@ -38,19 +38,22 @@ interface ProductsContextType {
 const ProductsContext = createContext<ProductsContextType | undefined>(
   undefined
 );
-async function urlToFile(url, filename, mimeType) {
+async function urlToFile(url: string, filename: string, mimeType: string) {
   const response = await fetch(url);
   const blob = await response.blob();
   return new File([blob], filename, { type: mimeType });
 }
 // Mock data for demonstration
-const createMockProducts = async(): Promise<Product[]> => {
+const createMockProducts = async (): Promise<Product[]> => {
   const mockProducts: Product[] = [
     {
       id: "1",
-      photo: await urlToFile('/images/cesta_frutas.png', 'cesta_frutas.png', 'image/png'),
-      photoDescription:
-        "1",
+      photo: await urlToFile(
+        "/images/cesta_frutas.png",
+        "cesta_frutas.png",
+        "image/png"
+      ),
+      photoDescription: "1",
       productName: "Cesta de Frutas Variadas",
       pickupInfo:
         "Retirada na Rua das Flores, 123 - Centro. Disponível das 8h às 18h",
@@ -63,7 +66,11 @@ const createMockProducts = async(): Promise<Product[]> => {
     },
     {
       id: "2",
-      photo: await urlToFile('/images/paes_frescos.png', 'paes_frescos.png', 'image/png'),
+      photo: await urlToFile(
+        "/images/paes_frescos.png",
+        "paes_frescos.png",
+        "image/png"
+      ),
       photoDescription: "Pães frescos de padaria artesanal",
       productName: "Pães Artesanais Frescos",
       pickupInfo: "Padaria do João - Av. Principal, 456. Retirar até 20h",
@@ -76,7 +83,11 @@ const createMockProducts = async(): Promise<Product[]> => {
     },
     {
       id: "3",
-      photo: await urlToFile('/images/legumes_2.png', 'legumes_2.png', 'image/png'),
+      photo: await urlToFile(
+        "/images/legumes_2.png",
+        "legumes_2.png",
+        "image/png"
+      ),
       photoDescription: "Legumes frescos da horta orgânica local",
       productName: "Legumes Orgânicos da Horta",
       pickupInfo: "Feira Orgânica - Praça Central. Sábados das 7h às 12h",
@@ -89,7 +100,11 @@ const createMockProducts = async(): Promise<Product[]> => {
     },
     {
       id: "4",
-      photo: await urlToFile('/images/marmitas.png', 'marmitas.png', 'image/png'),
+      photo: await urlToFile(
+        "/images/marmitas.png",
+        "marmitas.png",
+        "image/png"
+      ),
       photoDescription: "Refeições prontas congeladas caseiras",
       productName: "Marmitas Caseiras Congeladas",
       pickupInfo:
@@ -129,8 +144,9 @@ const createMockProducts = async(): Promise<Product[]> => {
     // },
     {
       id: "7",
-      photo: await urlToFile('/images/lacteos.png', 'lacteos.png', 'image/png'),
-      photoDescription: "Produtos lácteos frescos da fazenda local como leite, queijo e iogurte",
+      photo: await urlToFile("/images/lacteos.png", "lacteos.png", "image/png"),
+      photoDescription:
+        "Produtos lácteos frescos da fazenda local como leite, queijo e iogurte",
       productName: "Laticínios Frescos da Fazenda",
       pickupInfo:
         "Fazenda Esperança - Estrada Rural, Km 15. Todos os dias das 6h às 10h",

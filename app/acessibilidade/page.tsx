@@ -184,7 +184,7 @@ export default function AcessibilidadePage() {
           description:
             "Atalhos de teclado podem ser desabilitados ou remapeados.",
           implementation:
-            "Atalhos Alt+1-4 são padrão de acessibilidade e podem ser desabilitados nas configurações do navegador.",
+            "Atalhos Alt+1-3 são padrão de acessibilidade e podem ser desabilitados nas configurações do navegador.",
         },
         {
           id: "2.2.1",
@@ -433,6 +433,7 @@ export default function AcessibilidadePage() {
               href="/"
               className="hover:text-[#E65100] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
               aria-label="Voltar para página inicial"
+              tabIndex={0}
             >
               Página inicial
             </Link>
@@ -449,13 +450,17 @@ export default function AcessibilidadePage() {
         className="max-w-4xl mx-auto px-4 py-8"
         role="main"
         aria-label="Informações sobre acessibilidade do site"
+        tabIndex={-1}
       >
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h1
+            className="text-3xl md:text-4xl font-bold text-gray-800 mb-4"
+            tabIndex={0}
+          >
             Recursos de <span className="text-[#F57C00]">Acessibilidade</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto" tabIndex={0}>
             O Barriga Cheea foi desenvolvido com foco na inclusão digital,
             oferecendo diversos recursos para garantir que todos possam utilizar
             nossa plataforma de forma eficiente e confortável.
@@ -464,10 +469,11 @@ export default function AcessibilidadePage() {
 
         {/* Back Button */}
         <div className="mb-8">
-          <Link href="/" aria-label="Voltar para página inicial">
+          <Link href="/" aria-label="Voltar para página inicial" tabIndex={0}>
             <Button
               variant="outline"
               className="flex items-center gap-2 hover:bg-[#F57C00] hover:text-black transition-colors cursor-pointer focus:ring-2 focus:ring-[#F57C00]"
+              tabIndex={0}
             >
               <ArrowLeft className="w-4 h-4" aria-hidden="true" />
               Voltar ao Início
@@ -478,7 +484,7 @@ export default function AcessibilidadePage() {
         {/* Accessibility Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {/* Navegação por Teclado */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Keyboard
@@ -509,10 +515,6 @@ export default function AcessibilidadePage() {
                     - Ir para rodapé
                   </li>
                   <li>
-                    <kbd className="bg-gray-200 px-2 py-1 rounded">Alt + 4</kbd>{" "}
-                    - Ir para controles de acessibilidade
-                  </li>
-                  <li>
                     <kbd className="bg-gray-200 px-2 py-1 rounded">Tab</kbd> -
                     Navegar entre elementos
                   </li>
@@ -532,7 +534,7 @@ export default function AcessibilidadePage() {
           </Card>
 
           {/* Ajuste de Fonte */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Type className="w-6 h-6 text-[#F57C00]" aria-hidden="true" />
@@ -556,7 +558,7 @@ export default function AcessibilidadePage() {
           </Card>
 
           {/* Alto Contraste */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Contrast
@@ -584,7 +586,7 @@ export default function AcessibilidadePage() {
           </Card>
 
           {/* Controle de Animações */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Play className="w-6 h-6 text-[#F57C00]" aria-hidden="true" />
@@ -608,7 +610,7 @@ export default function AcessibilidadePage() {
           </Card>
 
           {/* Leitores de Tela */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Volume2
@@ -626,7 +628,7 @@ export default function AcessibilidadePage() {
                 <h4 className="font-semibold mb-2">Leitores testados:</h4>
                 <ul className="space-y-2 text-sm">
                   <li>• NVDA (Windows) - Gratuito</li>
-                  {/* <li>• JAWS (Windows) - Comercial</li> */}
+                  <li>• JAWS (Windows) - Comercial</li>
                   <li>• VoiceOver (Mac/iOS) - Nativo</li>
                   <li>• TalkBack (Android) - Nativo</li>
                   <li>• Orca (Linux) - Gratuito</li>
@@ -636,7 +638,7 @@ export default function AcessibilidadePage() {
           </Card>
 
           {/* VLibras */}
-          <Card className="border-l-4 border-l-[#F57C00]">
+          <Card className="border-l-4 border-l-[#F57C00]" tabIndex={0}>
             <CardHeader>
               <CardTitle className="flex items-center gap-3">
                 <Users className="w-6 h-6 text-[#F57C00]" aria-hidden="true" />
@@ -664,6 +666,7 @@ export default function AcessibilidadePage() {
                     rel="noopener noreferrer"
                     className="text-[#E65100] hover:text-[#F57C00] flex items-center gap-1 text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded transition-colors"
                     aria-label="Saiba mais sobre VLibras - abre em nova aba"
+                    tabIndex={0}
                   >
                     Saiba mais sobre VLibras
                     <ExternalLink className="w-3 h-3" aria-hidden="true" />
@@ -675,7 +678,7 @@ export default function AcessibilidadePage() {
         </div>
 
         {/* Standards and Compliance */}
-        <Card className="mb-8">
+        <Card className="mb-8" tabIndex={0}>
           <CardHeader>
             <CardTitle className="flex items-center gap-3">
               <Eye className="w-6 h-6 text-[#F57C00]" aria-hidden="true" />
@@ -717,7 +720,7 @@ export default function AcessibilidadePage() {
                   </span>
                 </p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 rounded-lg" tabIndex={0}>
                 <h4 className="font-semibold mb-2">
                   Lei Brasileira de Inclusão
                 </h4>
@@ -820,6 +823,7 @@ export default function AcessibilidadePage() {
                 <Button
                   onClick={() => setShowWcagModal(false)}
                   className="bg-[#E65100] hover:bg-[#F57C00] text-black cursor-pointer focus:ring-2 focus:ring-[#F57C00]"
+                  tabIndex={0}
                 >
                   Fechar
                 </Button>
@@ -829,7 +833,7 @@ export default function AcessibilidadePage() {
         </Dialog>
 
         {/* Help and Support */}
-        <Card className="mb-8">
+        <Card className="mb-8" tabIndex={0}>
           <CardHeader>
             <CardTitle>Precisa de Ajuda?</CardTitle>
           </CardHeader>
@@ -859,13 +863,16 @@ export default function AcessibilidadePage() {
 
         {/* Quick Actions */}
         <div className="text-center">
-          <h3 className="text-xl font-semibold mb-4">Ações Rápidas</h3>
+          <h3 className="text-xl font-semibold mb-4" tabIndex={0}>
+            Ações Rápidas
+          </h3>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               className="bg-[#E65100] hover:bg-[#F57C00] text-black cursor-pointer focus:ring-2 focus:ring-[#F57C00] focus:ring-offset-2 transition-colors"
               onClick={scrollToAccessibilityBar}
               aria-label="Ir para controles de acessibilidade no topo da página"
               aria-describedby="accessibility-controls-help"
+              tabIndex={0}
             >
               <MousePointer className="w-4 h-4 mr-2" aria-hidden="true" />
               Ir para Controles de Acessibilidade
@@ -875,10 +882,11 @@ export default function AcessibilidadePage() {
               acessibilidade
             </div>
 
-            <Link href="/" aria-label="Voltar para página inicial">
+            <Link href="/" aria-label="Voltar para página inicial" tabIndex={0}>
               <Button
                 variant="outline"
                 className="w-full sm:w-auto cursor-pointer hover:bg-gray-50 focus:ring-2 focus:ring-[#F57C00] focus:ring-offset-2 transition-colors"
+                tabIndex={0}
               >
                 Voltar ao Site
               </Button>
@@ -890,7 +898,10 @@ export default function AcessibilidadePage() {
       {/* Selo de Acessibilidade */}
       <div className="bg-gray-100 py-8 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-block bg-white p-4 rounded-lg shadow-sm border-2 border-[#F57C00]">
+          <div
+            className="inline-block bg-white p-4 rounded-lg shadow-sm border-2 border-[#F57C00]"
+            tabIndex={0}
+          >
             <div className="flex flex-col items-center">
               <div className="flex items-center mb-2">
                 <CheckCircle
@@ -917,13 +928,6 @@ export default function AcessibilidadePage() {
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer
-        className="bg-[#212121] text-[#EBEBEB] mt-16"
-        role="contentinfo"
-        aria-label="Rodapé do site"
-      ></footer>
     </div>
   );
 }

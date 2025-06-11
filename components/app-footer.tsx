@@ -17,13 +17,15 @@ export function AppFooter() {
     >
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         {/* Newsletter Section */}
-        <div className="mb-8 md:mb-12">
-          <h3 className="text-xl md:text-2xl font-bold mb-2">
-            Assine a nossa <span className="text-[#F57C00]">newsletter</span>
-          </h3>
-          <p className="text-[#EBEBEB] mb-4 md:mb-6 text-sm md:text-base">
-            Fique por dentro das últimas notícias, anúncios e artigos.
-          </p>
+        <div className="mb-8 md:mb-12 flex justify-between">
+          <div>
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              Assine a nossa <span className="text-[#F57C00]">newsletter</span>
+            </h3>
+            <p className="text-[#EBEBEB] mb-4 md:mb-6 text-sm md:text-base">
+              Fique por dentro das últimas notícias, anúncios e artigos.
+            </p>
+          </div>
           <form
             className="flex flex-col sm:flex-row max-w-md gap-2 sm:gap-0"
             role="form"

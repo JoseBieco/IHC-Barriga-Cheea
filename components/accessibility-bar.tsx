@@ -1,19 +1,18 @@
 "use client";
 
+import { useAccessibility } from "@/contexts/accessibility-context";
+import Link from "next/link";
 import type React from "react";
-
 import { useState } from "react";
-import { Plus, Minus, RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { useAccessibility } from "@/contexts/accessibility-context";
-import Link from "next/link";
+} from "./ui/dialog";
+import { Button } from "./ui/button";
+import { Minus, Plus, RotateCcw } from "lucide-react";
 
 export function AccessibilityBar() {
   const [showFontModal, setShowFontModal] = useState(false);
@@ -56,55 +55,108 @@ export function AccessibilityBar() {
     toggleAnimations();
   };
 
+  const skipToMain = () => {
+    const mainContent = document.querySelector(
+      'main, [role="main"], #main-content'
+    );
+    if (mainContent) {
+      (mainContent as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      (mainContent as HTMLElement).focus();
+      announceToScreenReader("Navegado para o conteúdo principal");
+    }
+  };
+
+  const skipToMenu = () => {
+    const menu = document.querySelector(
+      '#main-navigation, nav[role="navigation"], header nav'
+    );
+    if (menu) {
+      (menu as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      const firstLink = menu.querySelector("a, button");
+      if (firstLink) {
+        (firstLink as HTMLElement).focus();
+      }
+      announceToScreenReader("Navegado para o menu de navegação");
+    }
+  };
+
+  const skipToFooter = () => {
+    const footer = document.querySelector(
+      'footer, [role="contentinfo"], #footer'
+    );
+    if (footer) {
+      (footer as HTMLElement).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      (footer as HTMLElement).focus();
+      announceToScreenReader("Navegado para o rodapé");
+    }
+  };
+
   return (
     <>
       <div
-        className="bg-gray-200 text-xs text-gray-600 px-4 py-1"
+        className="bg-gray-200 text-xs text-gray-600 px-4 py-2"
         role="banner"
         aria-label="Barra de acessibilidade"
       >
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-y-2">
           <nav
             aria-label="Links de navegação rápida"
-            className="flex flex-wrap gap-2 sm:space-x-4"
+            className="flex flex-wrap items-center gap-x-4"
           >
-            <a
-              href="#main-content"
-              className="skip-link hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500"
-              aria-label="Ir para conteúdo principal"
+            <button
+              type="button"
+              onClick={skipToMain}
+              className="underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1"
+              aria-label="Ir para conteúdo principal - Atalho 1"
+              accessKey="1"
             >
               Ir para conteúdo [1]
-            </a>
-            <a
-              href="#main-navigation"
-              className="skip-link hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500"
-              aria-label="Ir para menu principal"
+            </button>
+            <button
+              type="button"
+              onClick={skipToMenu}
+              className="underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1"
+              aria-label="Ir para menu principal - Atalho 2"
+              accessKey="2"
             >
               Ir para menu [2]
-            </a>
-            <a
-              href="#footer"
-              className="skip-link hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500"
-              aria-label="Ir para rodapé"
+            </button>
+            <button
+              type="button"
+              onClick={skipToFooter}
+              className="underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1"
+              aria-label="Ir para rodapé - Atalho 3"
+              accessKey="3"
             >
               Ir para o rodapé [3]
-            </a>
+            </button>
             <Link
               href="/acessibilidade"
-              className="hover:underline focus:outline-none focus:ring-2 focus:ring-orange-500  font-medium"
+              className="underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1"
               aria-label="Ir para página de informações sobre acessibilidade"
+              accessKey="4"
+              role="link"
             >
               Ir para Acessibilidade [4]
             </Link>
           </nav>
           <div
-            className="flex flex-wrap items-center gap-2 sm:space-x-4"
+            className="flex flex-wrap items-center gap-x-4"
             role="toolbar"
             aria-label="Controles de acessibilidade"
           >
             <button
               type="button"
-              className="hover:underline cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 rounded px-1"
+              className="underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1"
               onClick={handleFontModalOpen}
               onKeyDown={(e) => handleKeyDown(e, handleFontModalOpen)}
               aria-label="Abrir configurações de tamanho de fonte"
@@ -114,8 +166,8 @@ export function AccessibilityBar() {
             </button>
             <button
               type="button"
-              className={`hover:underline cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 rounded px-1 ${
-                highContrast ? "font-bold text-black" : ""
+              className={`underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1 ${
+                highContrast ? "font-bold" : ""
               }`}
               onClick={handleHighContrastToggle}
               onKeyDown={(e) => handleKeyDown(e, handleHighContrastToggle)}
@@ -131,8 +183,8 @@ export function AccessibilityBar() {
             </button>
             <button
               type="button"
-              className={`hover:underline cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-1 rounded px-1 ${
-                animationsDisabled ? "font-bold text-black" : ""
+              className={`underline underline-offset-2 text-gray-700 hover:text-[#F57C00] hover:underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-1 ${
+                animationsDisabled ? "font-bold" : ""
               }`}
               onClick={handleAnimationsToggle}
               onKeyDown={(e) => handleKeyDown(e, handleAnimationsToggle)}
@@ -168,7 +220,7 @@ export function AccessibilityBar() {
               <p className="text-2xl font-bold">{getFontSizePercentage()}%</p>
             </div>
 
-            <div className="flex justify-center space-x-4 flex flex-row flex-wrap">
+            <div className="flex justify-center space-x-4 flex flex-row flex-wrap gap-4">
               <Button
                 variant="outline"
                 size="lg"
@@ -176,15 +228,15 @@ export function AccessibilityBar() {
                   decreaseFontSize();
                   announceToScreenReader(
                     `Fonte diminuída para ${Math.round(
-                      (fontSize - 0.1) * 100
+                      (fontSize - 0.05) * 100
                     )}%`
                   );
                 }}
                 disabled={fontSize <= 0.8}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 cursor-pointer"
                 aria-label="Diminuir tamanho da fonte"
               >
-                <Minus className="h-4 w-4" />
+                <Minus className="h-4 w-4" aria-hidden="true" />
                 <span>Diminuir fonte</span>
               </Button>
 
@@ -195,10 +247,10 @@ export function AccessibilityBar() {
                   resetFontSize();
                   announceToScreenReader("Fonte resetada para 100%");
                 }}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 cursor-pointer"
                 aria-label="Resetar tamanho da fonte para padrão"
               >
-                <RotateCcw className="h-4 w-4" />
+                <RotateCcw className="h-4 w-4" aria-hidden="true" />
                 <span>Resetar</span>
               </Button>
 
@@ -209,15 +261,15 @@ export function AccessibilityBar() {
                   increaseFontSize();
                   announceToScreenReader(
                     `Fonte aumentada para ${Math.round(
-                      (fontSize + 0.1) * 100
+                      (fontSize + 0.05) * 100
                     )}%`
                   );
                 }}
                 disabled={fontSize >= 1.6}
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 cursor-pointer"
                 aria-label="Aumentar tamanho da fonte"
               >
-                <Plus className="h-4 w-4" />
+                <Plus className="h-4 w-4" aria-hidden="true" />
                 <span>Aumentar fonte</span>
               </Button>
             </div>
