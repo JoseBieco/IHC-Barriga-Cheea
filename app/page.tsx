@@ -2,12 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, Calendar, Clock, MapPin, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useProducts, type Product } from "@/contexts/products-context";
 import { ProductCard } from "@/components/product-card";
+
+import introImg from "../public/intro-logado.png";
 
 type SortOption = "date" | "time" | "proximity" | null;
 
@@ -143,15 +146,10 @@ export default function Component() {
 
       {/* Hero Image Placeholder */}
       <div className="relative h-48 md:h-64 overflow-hidden bg-black">
-        <div className="w-full h-full bg-black flex items-center justify-center">
-          <span
-            className="text-[#EBEBEB] text-base md:text-lg text-center px-4"
-            role="img"
-            aria-label="[ALT] Imagem principal mostrando doação de alimentos - substituir por imagem real"
-          >
-            [ALT] Imagem principal - substituir por imagem real
-          </span>
-        </div>
+        <Image
+          src={introImg}
+          alt="Caixa de papelão com óleo de cozinha, biscoitos, pães, e macarrão dentro de sacolas, e potes de vidro com tampa de alumínio"
+        />
       </div>
 
       {/* Main Content */}

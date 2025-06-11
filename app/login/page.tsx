@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,6 +13,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useAuth } from "@/contexts/auth-context";
 import { AlertCircle } from "lucide-react";
+
+import loginImg from "../../public/login.png";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -125,19 +128,8 @@ export default function LoginPage() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Image */}
-          <div className="relative h-96 lg:h-[600px] bg-black rounded-lg overflow-hidden">
-            <div
-              className="w-full h-full bg-black flex items-center justify-center"
-              role="img"
-              aria-label="[ALT] Imagem representativa de doação de alimentos - substituir por imagem real"
-            >
-              <span
-                className="text-white text-lg text-center px-4"
-                aria-hidden="true"
-              >
-                [ALT] Imagem de doação de alimentos - substituir por imagem real
-              </span>
-            </div>
+          <div className="relative h-96 lg:h-[582px] rounded-lg overflow-hidden">
+            <Image src={loginImg} alt="Pessoas com máscaras e luvas embalando alimentos para doação" />
           </div>
 
           {/* Right Side - Login Form */}
