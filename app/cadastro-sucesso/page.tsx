@@ -2,11 +2,14 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useAuth } from "@/contexts/auth-context";
 import { CheckCircle } from "lucide-react";
+
+import successImg from "../../public/success.png";
 
 export default function CadastroSucessoPage() {
   const searchParams = useSearchParams();
@@ -61,14 +64,8 @@ export default function CadastroSucessoPage() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left Side - Image */}
-          <div className="relative h-96 lg:h-[600px] bg-black rounded-lg overflow-hidden">
-            {/* Placeholder for image - replace with actual image later */}
-            <div className="w-full h-full bg-black flex items-center justify-center">
-              <span className="text-white text-lg">
-                Imagem de doação de alimentos
-              </span>
-            </div>
+          <div className="relative h-96 lg:h-[582px] rounded-lg overflow-hidden">
+            <Image src={successImg} alt="Caixa de papelão com alimentos" />
           </div>
 
           {/* Right Side - Success Message */}

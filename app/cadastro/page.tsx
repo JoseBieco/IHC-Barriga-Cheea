@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +20,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+
+import loginImg from "../../public/login.png";
 
 export default function CadastroPage() {
   const router = useRouter();
@@ -172,13 +175,8 @@ export default function CadastroPage() {
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Left Side - Image */}
-          <div className="relative h-96 lg:h-[700px] bg-black rounded-lg overflow-hidden">
-            {/* Placeholder for image - replace with actual image later */}
-            <div className="w-full h-full bg-black flex items-center justify-center">
-              <span className="text-white text-lg">
-                Imagem de doação de alimentos
-              </span>
-            </div>
+          <div className="relative h-96 lg:h-[582px] rounded-lg overflow-hidden">
+            <Image src={loginImg} alt="Pessoas com máscaras e luvas embalando alimentos para doação" />
           </div>
 
           {/* Right Side - Registration Form */}
