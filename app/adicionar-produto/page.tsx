@@ -202,7 +202,7 @@ export default function AdicionarProduto() {
             <Button
               variant="destructive"
               onClick={confirmCancel}
-              className="cursor-pointer"
+              className="cursor-pointer  no-border"
             >
               Sim, cancelar
             </Button>

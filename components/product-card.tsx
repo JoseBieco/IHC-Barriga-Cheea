@@ -291,7 +291,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </div>
             <div className="flex items-center" role="listitem">
               <MapPin
-                className="h-4 w-4 mr-2 text-[#F57C00]"
+                className="h-6 w-6 mr-2 text-[#F57C00]"
                 aria-hidden="true"
               />
               <span
@@ -326,7 +326,7 @@ export function ProductCard({ product }: ProductCardProps) {
       >
         <DialogContent className="max-w-5xl w-[95vw] h-[85vh] mt-12 p-0 flex flex-col">
           {/* Fixed Header */}
-          <div className="flex items-start justify-between p-6 pb-4 border-b bg-white shrink-0 rounded-lg">
+          <div className="flex items-start justify-between p-6 pb-4 border-b bg-white shrink-0 rounded-lg no-border">
             <div className="flex-1 pr-4">
               <DialogTitle
                 id="product-details-title"
@@ -415,7 +415,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     aria-labelledby="pickup-heading"
                   >
                     <MapPin
-                      className="h-5 w-5 text-[#F57C00] mr-2 mt-0.5"
+                      className="h-6 w-6 text-[#F57C00] mr-2 mt-0.5"
                       aria-hidden="true"
                     />
                     <p>{product.pickupInfo}</p>
@@ -531,7 +531,7 @@ export function ProductCard({ product }: ProductCardProps) {
               <Button
                 variant="ghost"
                 onClick={() => setShowDetailsDialog(false)}
-                className="text-red-600 hover:text-red-700 cursor-pointer"
+                className="text-red-600 hover:text-red-700 cursor-pointer no-border"
                 aria-label="Fechar janela de detalhes"
               >
                 <p className="underline underline-offset-2">Fechar</p>
@@ -562,7 +562,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <Button
               variant="outline"
               onClick={() => setShowDeleteDialog(false)}
-              className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]"
+              className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]  no-border"
               aria-label="Cancelar exclusão do produto"
             >
               Cancelar

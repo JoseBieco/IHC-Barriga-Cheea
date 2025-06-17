@@ -465,7 +465,11 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast .border-l,
 .high-contrast .border-r {
   border-color: #000000 !important;
-  border-width: 2px !important;
+  /* border-width: 2px !important; */
+}
+
+.high-contrast svg {
+  stroke: #000000 !important;
 }
 
 /* Botões em alto contraste */
@@ -510,8 +514,13 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast .rounded-lg,
 .high-contrast .rounded,
 .high-contrast .rounded-md {
-  border: 2px solid #000000 !important;
+  border-width: 2px !important;
+  border-color:#000000 !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
+
+
 
 /* Links em alto contraste */
 .high-contrast a,
@@ -579,7 +588,7 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast [role="tab"] {
   background-color: #ffffff !important;
   color: #000000 !important;
-  border: 2px solid #000000 !important;
+  /* border: 2px solid #000000 !important; */
 }
 
 .high-contrast [role="tab"][aria-selected="true"] {
@@ -598,9 +607,13 @@ button:hover.bg-\[#F57C00\] {
 /* Footer específico */
 .high-contrast footer {
   background-color: #000000 !important;
-  color: #ffffff !important;
+  /* color: #ffffff !important; */
   border: 2px solid #ffffff !important;
 }
+.high-contrast footer svg{
+  fill: #000 !important;
+}
+
 
 .high-contrast footer h3,
 .high-contrast footer h4,
@@ -618,9 +631,10 @@ button:hover.bg-\[#F57C00\] {
 /* Links do footer em alto contraste */
 .high-contrast footer a,
 .high-contrast footer [role="link"] {
-  color: #ffffff !important;
+  /* color: #ffffff !important; */
   text-decoration: underline !important;
   font-weight: bold !important;
+  padding: 2px 4px !important;
 }
 
 .high-contrast footer a:hover,
@@ -658,8 +672,8 @@ button:hover.bg-\[#F57C00\] {
 /* Ícones das redes sociais em alto contraste */
 .high-contrast footer svg,
 .high-contrast footer [aria-hidden="true"] {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+  /* color: #ffffff !important;
+  fill: #ffffff !important; */
 }
 
 .high-contrast footer a:hover svg,
@@ -679,7 +693,22 @@ button:hover.bg-\[#F57C00\] {
 .high-contrast footer .border-gray-600,
 .high-contrast footer .border-t {
   border-color: #ffffff !important;
-  border-width: 2px !important;
+  /* border-width: 2px !important; */
+}
+.high-contrast .no-border {
+  border: none !important;
+}
+
+.high-contrast .no-background,.high-contrast .no-background:hover {
+  background-color: transparent !important;
+}
+
+.high-contrast .icon-white {
+  fill: white !important;
+  stroke: white !important;
+}
+.high-contrast .border-l-\[\#F57C00\]{
+  border-left-color: #000 !important;
 }
 
 /* Animations disabled */

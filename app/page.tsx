@@ -109,7 +109,7 @@ export default function Component() {
     }
 
     return (
-      <div className="h-[calc(100vh-340px)] overflow-y-auto pr-2">
+      <div className="pr-2">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 pb-4">
           {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
@@ -293,7 +293,7 @@ export default function Component() {
                     aria-pressed={activeSort === "proximity"}
                   >
                     <MapPin
-                      className={`w-4 h-4 mr-2 ${
+                      className={`w-6 h-6 mr-2 ${
                         activeSort === "proximity"
                           ? "text-[#E65100]"
                           : "text-gray-500"
@@ -373,7 +373,7 @@ export default function Component() {
 
           {/* Content Area */}
           <div className="lg:col-span-3">
-            <Tabs defaultValue="em-liberacao" className="w-full">
+            <Tabs defaultValue="em-liberacao" className="w-full TabsRoot">
               <TabsList
                 className="grid w-full grid-cols-2 md:grid-cols-4 mb-2 gap-1"
                 role="tablist"

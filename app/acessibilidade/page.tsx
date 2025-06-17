@@ -716,7 +716,7 @@ export default function AcessibilidadePage() {
                   garantindo que o site seja perceptível, operável,
                   compreensível e robusto.{" "}
                   <span className="text-[#E65100] font-medium">
-                    VePrecisa de Ajuda?r detalhes.
+                    Ver detalhes.
                   </span>
                 </p>
               </div>

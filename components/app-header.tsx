@@ -142,7 +142,7 @@ export function AppHeader() {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Link href="/login" aria-label="Fazer login na plataforma">
+              <Link href="/login" aria-label="Fazer login na plataforma" className="no-background">
                 <button
                   className="w-10 h-10 bg-[#E65100] rounded-full flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] transition-colors hover:bg-[#F57C00]"
                   aria-label="Botão para fazer login"

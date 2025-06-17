@@ -256,7 +256,7 @@ export default function EditarProduto() {
             <Button
               variant="destructive"
               onClick={confirmCancel}
-              className="cursor-pointer"
+              className="cursor-pointer no-border"
             >
               Sim, cancelar
             </Button>
@@ -554,7 +554,7 @@ export default function EditarProduto() {
               <Button
                 type="button"
                 variant="ghost"
-                className="text-red-600 hover:text-red-700 cursor-pointer"
+                className="text-red-600 hover:text-red-700 cursor-pointer  no-border"
                 onClick={handleCancel}
               >
                 <p className="underline underline-offset-2">Cancelar</p>
