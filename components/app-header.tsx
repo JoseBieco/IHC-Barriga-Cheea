@@ -88,7 +88,7 @@ export function AppHeader() {
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-2 py-1 text-sm xl:text-base"
               aria-label="Acessar perguntas frequentes e central de ajuda"
             >
-              FAQ
+              Ajuda
             </button>
 
             {/* User Profile/Login */}
@@ -143,12 +143,12 @@ export function AppHeader() {
               </DropdownMenu>
             ) : (
               <Link href="/login" aria-label="Fazer login na plataforma" className="no-background">
-                <button
+                <span
                   className="w-10 h-10 bg-[#E65100] rounded-full flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] transition-colors hover:bg-[#F57C00]"
                   aria-label="Botão para fazer login"
                 >
                   <User className="w-5 h-5 text-[#EBEBEB]" aria-hidden="true" />
-                </button>
+                </span>
               </Link>
             )}
           </nav>
@@ -187,12 +187,12 @@ export function AppHeader() {
               </DropdownMenu>
             ) : (
               <Link href="/login">
-                <button
+                <span
                   className="w-8 h-8 bg-[#E65100] rounded-full flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] transition-colors hover:bg-[#F57C00]"
                   aria-label="Fazer login"
                 >
                   <User className="w-4 h-4 text-[#EBEBEB]" aria-hidden="true" />
-                </button>
+                </span>
               </Link>
             )}
 
@@ -257,7 +257,7 @@ export function AppHeader() {
                 className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded px-2 py-2 text-left"
                 aria-label="Perguntas frequentes"
               >
-                FAQ
+                Ajuda
               </button>
             </div>
           </nav>

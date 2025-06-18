@@ -127,9 +127,9 @@ export default function CadastroSucessoPage() {
 
               <div className="space-y-4">
                 <Link href="/login">
-                  <Button className="w-full bg-[#E65100] hover:bg-[#F57C00] text-black py-3 cursor-pointer">
+                  <span className="w-full bg-[#E65100] hover:bg-[#F57C00] text-black py-3 cursor-pointer">
                     Ir para Login
-                  </Button>
+                  </span>
                 </Link>
 
                 <Link href="/">

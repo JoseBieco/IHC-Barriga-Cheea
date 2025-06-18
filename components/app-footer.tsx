@@ -69,28 +69,21 @@ export function AppFooter() {
             aria-label="Links do rodapé"
             role="navigation"
           >
-            <Link
+            {/* <Link
               href="#"
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
               aria-label="Ir para página inicial"
             >
               Início
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="#"
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
               aria-label="Conhecer mais sobre a organização"
             >
               Quem somos
-            </Link>
-            <Link
-              href="#"
-              className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
-              aria-label="Entender como funciona a plataforma"
-            >
-              Funcionamento
-            </Link>
-            <Link
+            </Link> */}
+             <Link
               href="#"
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
               aria-label="Entrar em contato conosco"
@@ -100,16 +93,24 @@ export function AppFooter() {
             <Link
               href="#"
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
-              aria-label="Obter ajuda e suporte"
+              aria-label="Entender como funciona a plataforma"
             >
-              Ajuda
+              Funcionamento
             </Link>
+
             <Link
               href="#"
               className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
               aria-label="Encontrar nossas localizações"
             >
               Onde estamos
+            </Link>
+            <Link
+              href="#"
+              className="text-[#EBEBEB] hover:text-[#F57C00] transition-colors text-sm md:text-base cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F57C00] rounded"
+              aria-label="Obter ajuda e suporte"
+            >
+              Ajuda
             </Link>
           </nav>
 
