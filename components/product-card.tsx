@@ -133,10 +133,10 @@ export function ProductCard({ product }: ProductCardProps) {
             </Badge>
             <DropdownMenu>
               <DropdownMenuTrigger asChild
-              onFocus={(e)=>{
+              onFocus={()=>{
                 setFocusOnDropdown(true)
               }}
-              onBlur={(e)=>{
+              onBlur={()=>{
                 setFocusOnDropdown(false)
               }}>
                 <div
