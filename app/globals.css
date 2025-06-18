@@ -980,3 +980,11 @@ legend {
   outline-offset: 2px !important;
   box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.2) !important;
 }
+
+
+img[alt] {
+  color: black; /* ou qualquer outra cor desejada */
+}
+.bg-black img[alt] {
+  color: white; /* ou qualquer outra cor desejada */
+}

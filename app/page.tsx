@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useProducts, type Product } from "@/contexts/products-context";
 import { ProductCard } from "@/components/product-card";
 
-import introImg from "../public/intro-logado.png";
+import introImg from "../public/overview2.jpeg";
 
 type SortOption = "date" | "time" | "proximity" | null;
 
@@ -149,7 +149,7 @@ export default function Component() {
         <Image
           className="object-cover w-full h-full"
           src={introImg}
-          alt="Caixa de papelão com óleo de cozinha, biscoitos, pães, e macarrão dentro de sacolas, e potes de vidro com tampa de alumínio"
+          alt="Uma caixa de papelão cheia de produtos de supermercado está sobre uma toalha listrada em vermelho e branco. Dentro há pão, óleo, banana, brócolis, tomate, arroz, macarrão, uma lata, uma caixinha de leite e uma garrafa de ketchup, todos bem organizados e visíveis."
         />
       </div>
 

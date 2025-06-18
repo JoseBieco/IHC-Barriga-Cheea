@@ -219,6 +219,15 @@ export function VLibras({ forceOnload }: Props): JSX.Element {
       <div
         vw-access-button="true"
         className="active"
+        tabIndex={0}
+        role="button"
+        aria-label="Ativar tradutor VLibras"
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            e.currentTarget.click(); // Simula o clique com teclado
+          }
+        }}
         // Atributos de acessibilidade serão adicionados dinamicamente
       />
       <div

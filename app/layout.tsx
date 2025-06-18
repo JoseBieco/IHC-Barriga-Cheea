@@ -34,9 +34,9 @@ export default function RootLayout({
               <KeyboardNavigation />
               <div className="sticky top-0 z-50">
                 <AccessibilityBar />
+                <VLibras forceOnload />
                 <AppHeader />
               </div>
-              <VLibras forceOnload />
               {children}
               <AppFooter />
             </ProductsProvider>

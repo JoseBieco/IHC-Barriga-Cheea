@@ -53,7 +53,7 @@ const createMockProducts = async (): Promise<Product[]> => {
         "cesta_frutas.png",
         "image/png"
       ),
-      photoDescription: "Cesta com frutas frescas e saudáveis, perfeitas para consumo imediato",
+      photoDescription: "Foto de uma cesta com frutas frescas e saudáveis que contem maçã, pera uva, banana, laranja e kiwi. ",
       productName: "Cesta de Frutas Variadas",
       pickupInfo:
         "Retirada na Rua das Flores, 123 - Centro. Disponível das 8h às 18h",
@@ -71,7 +71,7 @@ const createMockProducts = async (): Promise<Product[]> => {
         "paes_frescos.png",
         "image/png"
       ),
-      photoDescription: "Pães frescos de padaria artesanal",
+      photoDescription: "Foto de pães frescos de uma padaria em uma cesta. Os pães são do estilo artesanal.",
       productName: "Pães Artesanais Frescos",
       pickupInfo: "Padaria do João - Av. Principal, 456. Retirar até 20h",
       expirationDate: "2025-02-02",
@@ -88,7 +88,7 @@ const createMockProducts = async (): Promise<Product[]> => {
         "legumes_2.png",
         "image/png"
       ),
-      photoDescription: "Legumes frescos da horta orgânica local",
+      photoDescription: "Foto de diversos tipos de legumes em cima de uma grama. Os legumes são: batata, cenoura, pepino, cebola, alho, repolho e outros.",
       productName: "Legumes Orgânicos da Horta",
       pickupInfo: "Feira Orgânica - Praça Central. Sábados das 7h às 12h",
       expirationDate: "2025-02-10",
@@ -105,7 +105,7 @@ const createMockProducts = async (): Promise<Product[]> => {
         "marmitas.png",
         "image/png"
       ),
-      photoDescription: "Refeições prontas congeladas caseiras",
+      photoDescription: "Foto de marmitas de plástico com diversos tipos de receitas e misturas variadas como arroz, feijão, farofa, carne moída e outros.",
       productName: "Marmitas Caseiras Congeladas",
       pickupInfo:
         "Cozinha Solidária - Rua da Esperança, 789. Segunda a sexta, 12h às 14h",
@@ -146,7 +146,7 @@ const createMockProducts = async (): Promise<Product[]> => {
       id: "7",
       photo: await urlToFile("/images/lacteos.png", "lacteos.png", "image/png"),
       photoDescription:
-        "Produtos lácteos frescos da fazenda local como leite, queijo e iogurte",
+        "Foto com duas garrafas de leite, queijo em cima de um prato, manteiga.",
       productName: "Laticínios Frescos da Fazenda",
       pickupInfo:
         "Fazenda Esperança - Estrada Rural, Km 15. Todos os dias das 6h às 10h",

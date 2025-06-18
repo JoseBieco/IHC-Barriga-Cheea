@@ -49,6 +49,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [showDetailsDialog, setShowDetailsDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [focusOnDropdown, setFocusOnDropdown] = useState(false);
 
   // Create image URL from File object
   React.useEffect(() => {
@@ -108,21 +109,21 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <>
       <Card
-        className="w-full cursor-pointer hover:shadow-lg transition-all duration-200 focus-within:ring-2 focus-within:ring-[#F57C00] focus-within:ring-offset-2"
+        className="w-full cursor-pointer hover:shadow-lg transition-all duration-200"
         role="article"
         aria-labelledby={`product-title-${product.id}`}
         aria-describedby={`product-description-${product.id}`}
         tabIndex={0}
         onClick={handleViewDetails}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
+          if ((e.key === "Enter" || e.key === " ") && focusOnDropdown === false)  {
             e.preventDefault();
             handleViewDetails();
           }
         }}
       >
         <CardHeader className="pb-3">
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start" >
             <Badge
               variant={statusBadge.variant}
               role="status"
@@ -131,18 +132,26 @@ export function ProductCard({ product }: ProductCardProps) {
               {statusBadge.label}
             </Badge>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]"
-                  aria-label={`Opções para o produto ${product.productName}`}
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <MoreVertical className="h-4 w-4" aria-hidden="true" />
-                </Button>
+              <DropdownMenuTrigger asChild
+              onFocus={(e)=>{
+                setFocusOnDropdown(true)
+              }}
+              onBlur={(e)=>{
+                setFocusOnDropdown(false)
+              }}>
+                <div
+                  onClick={(e) => e.stopPropagation()}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="cursor-pointer hover:bg-gray-100 focus:ring-2 focus:ring-[#F57C00]"
+                    aria-label={`Opções para o produto ${product.productName}`}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <MoreVertical className="h-4 w-4" aria-hidden="true" />
+                  </Button>
+                </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 align="end"
